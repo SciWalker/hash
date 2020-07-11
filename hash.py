@@ -25,13 +25,14 @@ def hash(block):
 
 ###################################################Start API######################################################
 app = Flask(__name__)
-app.config["DEBUG"] = True
+#app.config["DEBUG"] = True
 
 
 @app.route('/')
 def home():
-    return '''<h1>QR codes</h1>
-<p>A prototype API for a great project</p>'''
+#    return '''<h1>QR codes</h1>
+#<p>A prototype API for a great project</p>'''
+    return "testing"
 # A route to return all of the available entries in our catalog.
     
 @app.route('/api/hash', methods=['POST'])
