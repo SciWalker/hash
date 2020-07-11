@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Python app to Azure Web App - testazurenshiyishi
+name: Build and deploy Python app to Azure Web App - hash-1987
 
 on:
   push:
@@ -29,6 +29,6 @@ jobs:
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v1
       with:
-        app-name: 'testazurenshiyishi'
+        app-name: 'hash-1987'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_b9527b7973094959a2337612ae7065cf }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_5ae2bf932bf04ad291c66ff37c412692 }}
