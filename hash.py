@@ -28,7 +28,7 @@ app = Flask(__name__)
 app.config["DEBUG"] = True
 
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 def home():
     return '''<h1>QR codes</h1>
 <p>A prototype API for a great project</p>'''
@@ -56,5 +56,5 @@ def result_get():
 
 
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000,debug=True)
+#if __name__ == "__main__":
+#    app.run(host="0.0.0.0", port=5000,debug=True)
