@@ -25,9 +25,9 @@ def hash(block):
 
 ###################################################Start API######################################################
 app = Flask(__name__)
-cors = CORS(app, resources={r"/foo": {"origins": "*"}})
+app.config['CORS_HEADERS'] = 'Content-Type'
 app.config["DEBUG"] = True
-
+cors = CORS(app, resources={r"/foo": {"origins": "*"}})
 
 @app.route('/')
 def home():
@@ -37,17 +37,14 @@ def home():
 # A route to return all of the available entries in our catalog.
     
 @app.route('/api/hash', methods=['POST'])
+@cross_origin(origin='*')
 def result():
     json_api=request.get_json()
     api_message = json_api['content']
     hashed_message=hash(api_message)
     print(hashed_message)
     #post the result image through api
-    payload = {'response': hashed_message,
-        {'Access-Control-Allow-Origin': '*'},
-        {'Access-Control-Allow-Headers': 'Authorization, Content-Type',
-        {'Access-Control-Allow-Methods': 'POST'}             
-              }
+    payload = {'response': hashed_message}
 
     return Response(json.dumps(payload), status=200, mimetype='application/json')
 
