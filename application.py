@@ -36,6 +36,9 @@ def home():
 # A route to return all of the available entries in our catalog.
     
 @app.route('/api/hash', methods=['POST'])
+Access-Control-Allow-Origin: https://phymath.com
+Access-Control-Allow-Methods: GET, POST
+Access-Control-Allow-Headers: Content-Type
 def result():
     json_api=request.get_json()
     api_message = json_api['content']
