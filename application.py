@@ -45,6 +45,7 @@ def result():
     print(hashed_message)
     #post the result image through api
     payload = {'response': hashed_message}
+    payload.headers.add('Access-Control-Allow-Origin', '*')
 
     return Response(json.dumps(payload), status=200, mimetype='application/json')
 
