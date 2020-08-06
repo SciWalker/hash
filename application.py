@@ -7,7 +7,6 @@ from uuid import uuid4
 import flask
 import requests
 from flask import Flask, jsonify, request,Response
-from flask.ext.cors import CORS, cross_origin
 
 def hash(block):
     """
@@ -25,9 +24,7 @@ def hash(block):
 
 ###################################################Start API######################################################
 app = Flask(__name__)
-app.config['CORS_HEADERS'] = 'Content-Type'
 app.config["DEBUG"] = True
-cors = CORS(app, resources={r"/foo": {"origins": "*"}})
 
 @app.route('/')
 def home():
@@ -37,7 +34,6 @@ def home():
 # A route to return all of the available entries in our catalog.
     
 @app.route('/api/hash', methods=['POST'])
-@cross_origin(origin='*')
 def result():
     json_api=request.get_json()
     api_message = json_api['content']
@@ -45,7 +41,6 @@ def result():
     print(hashed_message)
     #post the result image through api
     payload = {'response': hashed_message}
-    payload.headers.add('Access-Control-Allow-Origin', '*')
 
     return Response(json.dumps(payload), status=200, mimetype='application/json')
 
